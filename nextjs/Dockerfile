@@ -2,17 +2,28 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy package.json first for better cache on subsequent builds
-COPY package.json ./
+# Print Node.js and npm versions
+RUN node -v && npm -v
 
-# Install dependencies
+# Copy package.json and install dependencies
+COPY package.json ./
 RUN npm install
 
-# Copy the rest of the code
+# List files after npm install
+RUN ls -la
+
+# Copy the rest of the application
 COPY . .
 
-# Add error handling and verbose output
-RUN set -ex && npm run build
+# List files after copying
+RUN ls -la
 
-# Start the app
+# Print contents of crucial files
+RUN cat package.json
+RUN cat next.config.js || echo "next.config.js not found"
+
+# Attempt to run the build
+RUN npm run build
+
+# If build succeeds, start the application
 CMD ["npm", "start"]
