@@ -11,8 +11,8 @@ RUN npm install
 # Copy the rest of the code
 COPY . .
 
-# Build the Next.js app with verbose flag for more detailed output
-RUN npm run build --verbose
+# Add error handling and verbose output
+RUN set -ex && npm run build
 
 # Start the app
 CMD ["npm", "start"]
