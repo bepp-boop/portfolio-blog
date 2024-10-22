@@ -2,7 +2,7 @@
   "name": "nextjs-ghost-app",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next dev",
+    "prebuild": "echo 'Starting build process' && npm list",
     "build": "next build",
     "start": "next start"
   },

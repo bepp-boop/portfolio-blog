@@ -9,21 +9,20 @@ RUN node -v && npm -v
 COPY package.json ./
 RUN npm install
 
-# List files after npm install
-RUN ls -la
+# List installed packages
+RUN npm list
 
 # Copy the rest of the application
 COPY . .
 
-# List files after copying
+# List files
 RUN ls -la
 
 # Print contents of crucial files
 RUN cat package.json
 RUN cat next.config.js || echo "next.config.js not found"
 
-# Attempt to run the build
-RUN npm run build
+# Attempt to run the build with more verbose output
+RUN npm run build --verbose
 
-# If build succeeds, start the application
 CMD ["npm", "start"]
