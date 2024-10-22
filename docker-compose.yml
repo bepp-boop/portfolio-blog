@@ -1,18 +1,9 @@
-version: "3"
-
 services:
   nextjs:
-    build:
-      context: ./nextjs
-      dockerfile: Dockerfile
+    image: node:18-alpine
+    command: sh -c "echo 'Hello from Next.js container' && tail -f /dev/null"
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=production
-      - NPM_CONFIG_LOGLEVEL=verbose
-    restart: unless-stopped
-    depends_on:
-      - ghost
 
   ghost:
     image: ghost:5-alpine
