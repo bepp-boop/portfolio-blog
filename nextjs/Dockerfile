@@ -5,24 +5,20 @@ WORKDIR /app
 # Print Node.js and npm versions
 RUN node -v && npm -v
 
-# Copy package.json and install dependencies
-COPY package.json ./
+COPY package*.json ./
 RUN npm install
 
-# List installed packages
-RUN npm list
-
-# Copy the rest of the application
 COPY . .
 
-# List files
+# List contents of the directory
 RUN ls -la
 
-# Print contents of crucial files
+# Print package.json content
 RUN cat package.json
-RUN cat next.config.js || echo "next.config.js not found"
 
-# Attempt to run the build with more verbose output
+# Run build with verbose flag
 RUN npm run build --verbose
+
+EXPOSE 3000
 
 CMD ["npm", "start"]
