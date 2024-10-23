@@ -7,8 +7,6 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - NODE_OPTIONS=--max-old-space-size=4096
-      - NEXT_TELEMETRY_DISABLED=1
     restart: always
 
   ghost:
