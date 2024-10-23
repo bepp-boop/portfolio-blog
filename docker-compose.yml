@@ -1,9 +1,15 @@
+version: "3"
+
 services:
   nextjs:
-    image: node:18-alpine
-    command: sh -c "echo 'Hello from Next.js container' && tail -f /dev/null"
+    build:
+      context: ./nextjs
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: always
 
   ghost:
     image: ghost:5-alpine
@@ -11,8 +17,6 @@ services:
       - "2368:2368"
     environment:
       - url=http://localhost:2368
-      - database__client=sqlite3
-      - database__connection__filename=/var/lib/ghost/content/data/ghost.db
     volumes:
       - ghost_data:/var/lib/ghost/content
     restart: always
