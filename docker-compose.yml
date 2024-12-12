@@ -1,11 +1,12 @@
+version: "3.8"
 services:
-  nextjs:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=production
-      - HOSTNAME=0.0.0.0
-    restart: always
+  portfolio:
+    image: node:alpine
+    deploy:
+      labels:
+        - "com.centurylinklabs.watchtower.enable=true"
+        - "io.portainer.update.strategy=on-push"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+      - "io.portainer.update.strategy=on-push"
+      - "io.portainer.gitops.enabled=true"
