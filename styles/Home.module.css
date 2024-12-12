@@ -233,3 +233,23 @@
 .socialLinks a:hover {
   color: #0070f3;
 }
+
+.servicesList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.servicesList li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.servicesList li:last-child {
+  border-bottom: none;
+}
+
+.serviceName {
+  font-weight: 600;
+  color: #0070f3;
+}
