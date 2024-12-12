@@ -1,30 +1,36 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import Navbar from "../components/Navbar";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { MdMail } from "react-icons/md";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
+    <div className={styles.container}>
       <Head>
-        <title>Your Name - Portfolio</title>
+        <title>Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <nav className={styles.navbar}>
-        <div className={styles.logo}>
-          <h1>Your Name</h1>
-        </div>
-        <div className={styles.navLinks}>
-          <a href="/projects">Projects</a>
-          <a href="/about">About</a>
-          <a href="/cv.pdf" download>
-            Download CV
+      <video autoPlay loop muted playsInline className={styles.videoBackground}>
+        <source src="/background.webm" type="video/webm" />
+      </video>
+      <Navbar />
+      <main className={styles.main}>
+        <h1>Hello! I'm Quang M Nguyen</h1>
+        <p>Ms Student Cyber Security</p>
+        <div className={styles.socialLinks}>
+          <a href="https://github.com/bepp-boop" target="_blank" rel="noopener noreferrer">
+            <FaGithub />
           </a>
-          <button className={styles.themeToggle}>
-            {/* You can use an icon here, for example: */}
-            🌓
-          </button>
+          <a href="https://www.linkedin.com/in/quang-minh-nguyen-43922b1b1/" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin />
+          </a>
+          <a href="mailto:quangteoqs15@gmail.com">
+            <MdMail />
+          </a>
         </div>
-      </nav>
+      </main>
     </div>
   );
 }
