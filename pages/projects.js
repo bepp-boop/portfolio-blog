@@ -116,15 +116,15 @@ export default function Projects() {
               <p>Set up a simple BadUSB using rasberpi zero. It used P4wnP1_aloa as the firmware.</p>
             </div>
             <div className={styles.projectCard}>
-              <h2>API Dev</h2>
+              <h2>Backend-Summer Intership</h2>
               <p>Description of project 1</p>
             </div>
             <div className={styles.projectCard}>
-              <h2>API Dev</h2>
+              <h2>MineCraft Server</h2>
               <p>Description of project 1</p>
             </div>
             <div className={styles.projectCard}>
-              <h2>API Dev</h2>
+              <h2>CasaOS Self Host</h2>
               <p>Description of project 1</p>
             </div>
           </div>

@@ -1,3 +1,4 @@
+version: "3.8"
 services:
   nextjs:
     build:
@@ -6,6 +7,18 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=${NODE_ENV}
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
+      - NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED}
       - HOSTNAME=0.0.0.0
+    deploy:
+      labels:
+        - "com.centurylinklabs.watchtower.enable=true"
+        - "io.portainer.update.strategy=on-push"
+        - "io.portainer.gitops.enabled=true"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+      - "io.portainer.update.strategy=on-push"
+      - "io.portainer.gitops.enabled=true"
     restart: always

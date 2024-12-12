@@ -24,10 +24,14 @@ export default function About() {
         <h1>About Me</h1>
         <div className={styles.aboutContent}>
           <p>
-            You finally awake. Welcome to my portfolio! I am a software developer in Sweden. I am currently studying at
-            KTH Royal Institute of Technology in Cyber Security. I like to work with self host stuff and DevOps
-            technology. Outside of work, I also used to spend time in my theater club as a set design and actor. I am
-            also a big fan of board game and interested in video development.
+            Hey, you. You’re finally awake. You were trying to solve that coding problem, right? Walked right into the
+            maze of bugs, same as us, and that CI/CD pipeline over there. Welcome to my portfolio! I’m a software
+            developer based in Sweden, currently studying Cyber Security at KTH Royal Institute of Technology. My
+            journey doesn’t stop at code—I enjoy exploring the realms of self-hosted setups and DevOps technology,
+            crafting systems that are as efficient as they are resilient. When I step away from the keyboard, I channel
+            my creativity through theater, where I’ve worked as both a set designer and actor. I’m also an avid board
+            game enthusiast and fascinated by video production. Combining these passions, I love bringing stories to
+            life through immersive, tech-infused experiences.
           </p>
         </div>
       </main>
