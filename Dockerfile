@@ -1,21 +1,21 @@
 # Use the official Node.js image as the base image
-FROM node:18 AS builder
+FROM node:18-alpine
 
 # Set the working directory
 WORKDIR /app
 
 # Copy package.json and package-lock.json (or yarn.lock) to install dependencies
-COPY package.json package-lock.json ./
-# If you are using Yarn, uncomment the next line and comment the npm install line
-# COPY yarn.lock ./
-# RUN yarn install
-RUN npm install  # Install dependencies
+COPY package*.json ./
+COPY pnpm-lock.yaml ./
+
+RUN npm install -g pnpm
+RUN pnpm install
 
 # Copy the rest of the application code
 COPY . .
 
 # Build the Next.js application
-RUN npm run build  # or yarn build
+RUN pnpm build
 
 # Production image, copy all the files and run next
 FROM node:18 AS runner
@@ -29,7 +29,6 @@ ENV PORT=3000
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/server.js ./  # Copy the server.js file
 
 # Set the user to a non-root user for security
 RUN addgroup --system --gid 1001 nodejs
