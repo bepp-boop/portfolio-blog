@@ -10,7 +10,7 @@ COPY pnpm-lock.yaml ./
 
 # Install pnpm and dependencies
 RUN npm install -g pnpm
-RUN pnpm install
+RUN pnpm install --prod
 
 # Copy all project files
 COPY . .

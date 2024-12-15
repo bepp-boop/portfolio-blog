@@ -1,22 +1,19 @@
-version: "3.8"
 services:
-  nextjs:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  web:
+    build: .
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=${NODE_ENV}
-      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
-      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
-      - NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED}
-      - HOSTNAME=0.0.0.0
     volumes:
-      - .:/app # Mount the current directory to /app in the container
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=production
+      - HOSTNAME=0.0.0.0
     deploy:
       labels:
-        - "com.centurylinklabs.watchtower.enable=true" # Enable Watchtower for automatic updates
-        - "io.portainer.update.strategy=on-push" # Trigger updates on Git push
-        - "io.portainer.gitops.enabled=true" # Enable GitOps
+        - "com.centurylinklabs.watchtower.enable=true"
+        - "traefik.enable=true"
+        - "traefik.http.routers.portfolio.rule=Host(`your-domain.com`)"
+        - "traefik.http.services.portfolio.loadbalancer.server.port=3000"
     restart: always
