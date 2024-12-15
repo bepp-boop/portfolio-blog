@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/About.module.css";
 import Navbar from "../components/Navbar";
 import Image from "next/image";
 
@@ -12,7 +12,7 @@ export default function About() {
       </Head>
       <Navbar />
 
-      <main className={styles.main}>
+      <main className={styles.aboutContainer}>
         <Image
           src="catcam-talking-steam.gif"
           alt="Profile animation"
@@ -23,7 +23,7 @@ export default function About() {
         />
         <h1>About Me</h1>
         <div className={styles.aboutContent}>
-          <p>
+          <p className={styles.aboutText}>
             Hey, you. You’re finally awake. You were trying to solve that coding problem, right? Walked right into the
             maze of bugs, same as us, and that CI/CD pipeline over there. Welcome to my portfolio! I’m a software
             developer based in Sweden, currently studying Cyber Security at KTH Royal Institute of Technology. My

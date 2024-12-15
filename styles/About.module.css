@@ -1,0 +1,29 @@
+.aboutContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.avatar {
+  margin-bottom: 2rem;
+}
+
+.title {
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.aboutText {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #333;
+  margin: 20px 0;
+}
+
+

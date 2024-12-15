@@ -20,7 +20,7 @@
 }
 
 .main {
-  padding: 2rem;
+  padding: 0.5rem;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -156,11 +156,6 @@
   background: #ffffff;
 }
 
-.aboutContent {
-  max-width: 800px;
-  margin: 2rem auto;
-}
-
 .skills ul {
   list-style: none;
   padding: 0;
@@ -253,3 +248,4 @@
   font-weight: 600;
   color: #0070f3;
 }
+
