@@ -13,14 +13,10 @@ services:
       - NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED}
       - HOSTNAME=0.0.0.0
     volumes:
-      - .:/app
+      - .:/app # Mount the current directory to /app in the container
     deploy:
       labels:
-        - "com.centurylinklabs.watchtower.enable=true"
-        - "io.portainer.update.strategy=on-push"
-        - "io.portainer.gitops.enabled=true"
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
-      - "io.portainer.update.strategy=on-push"
-      - "io.portainer.gitops.enabled=true"
+        - "com.centurylinklabs.watchtower.enable=true" # Enable Watchtower for automatic updates
+        - "io.portainer.update.strategy=on-push" # Trigger updates on Git push
+        - "io.portainer.gitops.enabled=true" # Enable GitOps
     restart: always
