@@ -19,7 +19,7 @@ COPY . .
 RUN pnpm build
 
 # Expose port
-EXPOSE 3000
+EXPOSE 3000/tcp
 
 # Start the server
 CMD ["pnpm", "start"]
